@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100%;
+}
+
+header{
+    width: 100%;
+    display: flex;
+}
+
+.logo{
+    width: 5rem;
+    height: 5rem;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
+}
+
+.name_logo{
+    
+    float: left;
+    margin-top: 1.7rem;
+}
+
+h2{
+    font-weight: bold;
+}
