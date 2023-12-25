@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/login.css">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+                <h3>Đăng nhập</h3>
+                <form class="input-gr">
+                    <input type="text" class="input-field" name="username" disabled id="username" placeholder="User name" required>
+                    <input type="password" class="input-field" id="password" placeholder="Password" required>
+                </form>
+                <div class="click">
+                    <p>Chưa có tài khoản? <a href="register.html">Nhấn vào đây</a></p>
+                    <button type="submit" class="sub-btn" onclick="login()">Đăng nhập</button>
+                    <button onclick="edit()">Edit</button>
+                    <p>Bạn muốn trở lại <a href="index.html">Trang chính</a> ?</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const password = document.getElementById("password");
+            const letter = document.getElementById("letter");
+            const number = document.getElementById("number");
+            const length = document.getElementById("length");
+            const username = document.getElementById("username");
+            
+
+            const lUser = JSON.parse(localStorage.getItem("user"));
+            username.value = lUser.username;
+
+
+
+            // username.disabled = false;
+
+
+            password.onkeyup = function(){
+
+                //Validate lowercase letter
+                const lowercaseletters = /[a-z]/g;
+                if(password.value.match(lowercaseletters)){
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                }else{
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+
+                //Validate numbers
+                const numbers = /[0-9]/g;
+                if(password.classList.match(numbers)){
+                    numbers.classList.remove("invalid");
+                    numbers.classList.add("valid");
+                }else{
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                }
+
+                //Validate length
+                if(password.value.length >=8){
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                }else{
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                }
+
+                console.log(password.value)
+            }
+            function login(){
+                const username = document.getElementById("username");
+                const password = document.getElementById("password");
+                console.log(password.value);
+                console.log(username.value);
+                const user = {
+                    username: username.value,
+                    password: password.value,
+                    phone:'',
+                    email:'',
+                    company:'',
+                    skills:'',
+                }
+
+                localStorage.setItem("user", JSON.stringify(user));
+                window.location.href = 'profile.html';
+            }
+
+            function edit(){
+                username.disabled = false;
+            }
+        </script>
+</body>
+</html>

@@ -3,93 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/img-sudo-code/banner/favicon.png">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="icon" type="image/x-icon" href="assets/img-sudo-code/banner/logodev.png">
+    <link rel="stylesheet" href="assets/css/profile.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Hồ sơ cá nhân</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo_banner">
-                <img src="/img-sudo-code/banner/devity.png" alt="logo">
+    <navbar>
+        <div class="navbar">
+            <div class="navbar_logo">
+                <a href="index.html">DEVITY - Developers Community</a>
             </div>
-            <div class="name_logo">
-                <h1>DEVITY</h1>
-            </div>
-            <div class="banner_option">
-                   
-                    <div class="home">
-                        <img src="/img-sudo-code/banner/home.png" alt="home">
-                    </div>
-                    <div class="community">
-                        <img src="/img-sudo-code/banner/communication.png" alt="community">                       
-                    </div>
-                    <div class="notification">
-                        <img src="/img-sudo-code/banner/bell.png" alt="Notification">
-                    </div>
-                
-            </div>
-            <div class="profile">
-                <img src="/img-sudo-code/user.png" alt="user">  <!--để tạm-->
-            </div>
-        </nav>
-    </header>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="forum.html">Forum</a></li>
+                <li><a href="#Workshop">Workshop</a></li>
+                <li><a href="#user"><i class='bx bxs-user-circle' style='color:#cdcccc'  ></i></a></li>
+            </ul>
+        </div>
+      </navbar>
     <hr>
     <main>
-        
-         <div class="avatar">
-             <img src="/img-sudo-code/user.png" alt="">      
-         </div>
-             <h1>Name user</h1>
-             <h2>Web Developer </h2>
-             <h2>Thông tin liên hệ</h2>
-        <div class="information">
-            <div class="mail">
-                <img src="/img-sudo-code/contact/gmail.png" alt="mail">
-            </div>
-            <div class="facebook">
-                <img src="/img-sudo-code/contact/facebook.png" alt="facebook">
-            </div>
-            <div class="twitter">
-                <img src="/img-sudo-code/contact/twitter.png" alt="twitter">
-            </div>
-        </div>
-        <div class="contact">
-            <div class="location">
-                <h3>Nơi sinh sống</h3>
-                <p>TP. Hồ Chí Minh</p>
-            </div>
-            <div class="phone">
-                <h3>Số điện thoại</h3>
-                <p>0244374283</p>
-            </div>
-            <div class="graduated">
-                <h3>Tốt nghiệp</h3>
-                <p>Đh ... </p>
-            </div>
-        </div>
-
-    
-        <div class="experience">
-                <div class="left">
-                    <p>Đã làm việc ở: </p>
-                </div>
-            <div class="right">
-                <p>Kỹ năng: </p>
-                <div class="skill">
-                    <div class="Java">
-                        
+            <div class="inf">
+                <div class="container">
+                    <div class="container_left">
+                        <div class="inf_avatar">
+                            <img src="assets/img-sudo-code/img/avatar-user.jpg" alt="" id="avatar">      
+                        </div>
+                        <div class="inf_link">
+                            <h4 id="username">Emma</h4>
+                            <span class="inf_profession">Web Developer</span>
+                            <div class="inf_social">
+                                <a href="#" class="inf_social-link"><i class='bx bxl-linkedin'></i></a>
+                                <a href="#" class="inf_social-link"><i class='bx bxl-github'></i></a>
+                                <a href="#" class="inf_social-link"><i class='bx bxl-stack-overflow' ></i></a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-             </div>
-         </div>
-         <div class="progess-bar">
-             <div class="grey-bar">grey</div>
-             <div class="yellow-bar">yellow</div>
-         </div>
-     </main>
+                    
+                    <div class="container_right">
+                        <h4>Giới thiệu</h4>
+                        <button class="edit" id="edit" onclick="edit()">Edit</button>
+                            <div class="about">
+                                <div class="inf_cont">
+                                    <i class='bx bxs-phone-call'></i>
+                                    <input type="text" name="phone" id="phone" disabled>
+                                </div>
+                                <div class="inf_cont">
+                                    <i class='bx bxl-gmail' ></i>
+                                    <input type="text" name="mail" id="mail" disabled>
+                                </div>  
+                            </div>
+                            <div class="experience">
+                                    <p>Mô tả bản thân: </p>
+                                    <input type="textarea" name="descrip" id="descrip" disabled>
+                                    <p>Kỹ năng: </p>
+                                    <input type="text" name="skill" id="skill" disabled>
+                                    <p>Đang làm việc: </p>
+                                    <input type="text" name="work" id="work" disabled>
+                                    <p>Kinh nghiệm: </p>
+                                    <select>
+                                        <option value="junior">Junior</option>
+                                        <option value="mid">Mid</option>
+                                        <option value="senior">Senior</option>
+                                    </select>
+                            </div>
+                            <button class="save" id="save" onclick="save()">Save</button>
+                    </div>
+            </div>
+                
+
     
 
+    </main>
+    
+    <script>
+
+        const phone = document.getElementById("phone");
+        const mail = document.getElementById("mail")
+
+        function edit(){
+            phone.disabled = false;
+            mail.disabled = false;
+        }
+
+        function save(){
+            var phone = document.getElementById('phone').value;
+            let mail = document.getElementById('mail').value;
+
+            document.write(+phone);
+            document.write(+mail);
+        }
+
+        window.onload=(event) => {
+            console.log("user");
+            const user = JSON.parse(localStorage.getItem("user"));
+            console.log(user);
+            user.username;
+            const username = document.getElementById("username");
+            username.innerHTML = user.username; 
+        }
+
+
+    </script>
 
 </body>
 </html>

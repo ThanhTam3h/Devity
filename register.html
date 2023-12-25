@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/register.css">
+    <title>Đăng ký</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-box">
+                <h3>Đăng ký</h3>
+                <form class="input-gr">
+                    <input type="text" class="input-field" id="username" name="username" placeholder="User name" required>
+                    <input type="email" class="input-field" id="email" name="email" placeholder="Email" required>
+                    <input type="password" class="input-field" id="psw" name="password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+                    <input type="password" class="input-field" id="cpsw" name="cpassword" placeholder="Confirm password" pattern="(?=.*\d)(?=.*[a-z]).{8,}" required>
+                </form>
+                <div class="check">
+                    <button type="submit" class="sub-btn" ><a href="login.html"></a>Đăng ký</button>
+                    <p>Bạn muốn trở lại <a href="index.html">Trang chính</a> ?</p>
+                </div>
+            </div>
+        </div>
+    
+
+        <script>
+
+            const password = document.getElementById("psw");
+            const checkConfirm = document.getElementById("cpsw");
+            const letter = document.getElementById("letter");
+            const number = document.getElementById("number");
+            const length = document.getElementById("length");
+            const confirm = document.getElementById("cpassword")
+
+            password.onfocus = function() {
+            document.getElementById("message").style.display = "block";
+
+        }
+            password.onblur = function(){
+            document.getElementById("message").style.display = "none";  
+        }
+
+            password.onkeyup = function(){
+
+                //Validate lowercase letter
+                const lowercaseletters = /[a-z]/g;
+                if(password.value.match(lowercaseletters)){
+                    letter.classList.remove("invalid");
+                    letter.classList.add("valid");
+                }else{
+                    letter.classList.remove("valid");
+                    letter.classList.add("invalid");
+                }
+
+                //Validate numbers
+                const numbers = /[0-9]/g;
+                if(password.classList.match(numbers)){
+                    numbers.classList.remove("invalid");
+                    numbers.classList.add("valid");
+                }else{
+                    number.classList.remove("valid");
+                    number.classList.add("invalid");
+                }
+
+                //Validate length
+                if(password.value.length >=8){
+                    length.classList.remove("invalid");
+                    length.classList.add("valid");
+                }else{
+                    length.classList.remove("valid");
+                    length.classList.add("invalid");
+                }
+
+                //Check confirm password
+                if(checkConfirm.value.confirm == password.value){
+                    checkConfirm.classList.remove("invalid");
+                    checkConfirm.classList.add("valid");
+                }else{
+                    checkConfirm.classList.remove("valid");
+                    checkConfirm.classList.add("invalid");
+                }
+            }
+
+        </script>
+
+
+</body>
+</html>
