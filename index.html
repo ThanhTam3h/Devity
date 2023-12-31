@@ -18,10 +18,21 @@
                 <li><a href="../index.html">Home</a></li>
                 <li><a href="forum.html">Forum</a></li>
                 <li><a href="#Workshop">Workshop</a></li>
-                <li><a href="#user"><img class="navbar_icon" src="../img-sudo-code/FORUM/profile-user.png"></a></li>
+                <li id="userimg"><a href="#user"><img class="navbar_icon" src="../img-sudo-code/FORUM/profile-user.png"></a></li>
             </ul>
         </div>
       </navbar>
+
+      <script>
+        window.onload=(event) => {
+            console.log("user");
+            const user = JSON.parse(localStorage.getItem("user"));
+            console.log(user);
+            user.userimg;
+            const username = document.getElementById("userimg");
+            username.innerHTML = user.userimg; 
+        }
+      </script>
     
 </body>
 </html>

@@ -80,16 +80,23 @@
     <script>
 
         const phone = document.getElementById("phone");
-        const mail = document.getElementById("mail")
+        const mail = document.getElementById("mail");
+        const descrip = document.getElementById("descrip");
 
         function edit(){
             phone.disabled = false;
             mail.disabled = false;
+            descrip.disabled = false;
         }
 
         function save(){
-            var phone = document.getElementById('phone').value;
+            let phone = document.getElementById('phone').value;
             let mail = document.getElementById('mail').value;
+
+            let resual = document.getElementById('resual');
+            resual.innerHTML = 
+                    'inf_cont'
+                    
 
             document.write(+phone);
             document.write(+mail);
